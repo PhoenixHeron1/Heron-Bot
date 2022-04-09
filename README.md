@@ -34,7 +34,7 @@ If everything is done right, then you are pretty much done. Now just execute the
 
 1) .ping -> `returns pong <author mentioned>`
 2) .rps rock/paper/scissor -> `a simple rock paper scissor`
-3) .rules -> `a bunch of rules, you can edit these by going to 7help.py file`
+3) .rules -> `a bunch of rules, you can edit these by going to 8rules.py file`
 4) .help -> `list of available commands : not updated`
 5) .toggle -> `only for owners, toggles the command on/off for the current session only`
 6) .ban -> `admin only`
