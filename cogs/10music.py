@@ -2,8 +2,11 @@ import discord
 from discord.ext import commands
 import yt_dlp as yt
 import asyncio
+from dotenv import load_dotenv
+import os
+load_dotenv()
 
-
+mc = os.getenv("music_channel_id")
 yt.utils.bug_reports_message = lambda: ""
 
 ytdl_format_options = {
@@ -50,7 +53,7 @@ class cog_10(commands.Cog):
 
     @commands.command()
     async def join(self, ctx):
-        if ctx.channel.id != 961631961682673725:
+        if ctx.channel.id != int(mc):
             return
 
         if not ctx.message.author.voice:
@@ -67,7 +70,7 @@ class cog_10(commands.Cog):
     @commands.command()
     async def leave(self, ctx):
 
-        if ctx.channel.id != 961631961682673725:
+        if ctx.channel.id != int(mc):
             return
 
         voice_client = ctx.message.guild.voice_client
@@ -79,7 +82,7 @@ class cog_10(commands.Cog):
 
     @commands.command()
     async def play(self, ctx, *, url):
-        if ctx.channel.id != 961631961682673725:
+        if ctx.channel.id != int(mc):
             return
         try:
             server = ctx.message.guild
@@ -106,7 +109,7 @@ class cog_10(commands.Cog):
 
     @commands.command()
     async def pause(self, ctx):
-        if ctx.channel.id != 961631961682673725:
+        if ctx.channel.id != int(mc):
             return
         voice_client = ctx.message.guild.voice_client
         if voice_client.is_playing():
@@ -116,7 +119,7 @@ class cog_10(commands.Cog):
 
     @commands.command()
     async def resume(self, ctx):
-        if ctx.channel.id != 961631961682673725:
+        if ctx.channel.id != int(mc):
             return
         voice_client = ctx.message.guild.voice_client
         if voice_client.is_paused():
@@ -128,7 +131,7 @@ class cog_10(commands.Cog):
 
     @commands.command()
     async def stop(self, ctx):
-        if ctx.channel.id != 961631961682673725:
+        if ctx.channel.id != int(mc):
             return
         voice_client = ctx.message.guild.voice_client
         if voice_client.is_playing():

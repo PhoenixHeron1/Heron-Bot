@@ -1,9 +1,12 @@
 import discord
 from discord.ext import commands
+from dotenv import load_dotenv
+import os
 import random
+load_dotenv()
 
 list1 = ["rock", "paper", "scissor"]
-
+rps = os.getenv("rock_paper_scissor_id")
 
 class cog_6(commands.Cog):
     def __init__(self, client):
@@ -12,7 +15,7 @@ class cog_6(commands.Cog):
     @commands.command()
     async def rps(self, ctx, *, choice):
 
-        if ctx.channel.id != 961092222776922143:
+        if ctx.channel.id != int(rps):
             return
 
         if choice not in list1:

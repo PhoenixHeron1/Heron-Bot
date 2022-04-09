@@ -1,6 +1,8 @@
 import discord
 from discord.ext import commands
-
+from dotenv import load_dotenv
+import os
+load_dotenv()
 
 class cog_9(commands.Cog):
     def __init__(self, client):

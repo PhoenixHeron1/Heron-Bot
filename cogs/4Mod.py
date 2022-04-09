@@ -1,8 +1,11 @@
-import sys
-import traceback
 import discord
 from discord.ext import commands
+from dotenv import load_dotenv
+import os
+load_dotenv()
 
+abl = os.getenv("kick_ban_log")
+mr = os.getenv("muted_role_id")
 
 class cog_4(commands.Cog):
     def __init__(self, client):
@@ -22,7 +25,7 @@ class cog_4(commands.Cog):
             title="User Kicked",
             description=f"User : {member.mention}\nReason : {reason}",
         )
-        await self.client.get_channel(960885490700128266).reply(embed=embed9)
+        await self.client.get_channel(abl).send(embed=embed9)
 
     @commands.command()
     @commands.has_permissions(ban_members=True)
@@ -38,7 +41,7 @@ class cog_4(commands.Cog):
             title="User Banned",
             description=f"User : {member.mention}\nReason : {reason}",
         )
-        await self.client.get_channel(960885490700128266).reply(embed=embed10)
+        await self.client.get_channel(abl).reply(embed=embed10)
 
     @commands.command()
     @commands.has_permissions(administrator=True)
@@ -46,7 +49,7 @@ class cog_4(commands.Cog):
         if member.id == 836260205943717898:
             return
 
-        muted_role = ctx.guild.get_role(961989576501653594)
+        muted_role = ctx.guild.get_role(mr)
         embed = discord.Embed(
             title="Member Muted",
             description=f"{ctx.message.author.mention} used mute command",
@@ -62,7 +65,7 @@ class cog_4(commands.Cog):
     @commands.has_permissions(administrator=True)
     async def unmute(self, ctx, member: discord.Member):
 
-        muted_role = ctx.guild.get_role(961989576501653594)
+        muted_role = ctx.guild.get_role(mr)
         embed = discord.Embed(
             title="Member unmuted",
             description=f"{ctx.message.author.mention} used unmute command",

@@ -1,6 +1,11 @@
 import discord
 from discord.ext import commands
+from dotenv import load_dotenv
+import os
+load_dotenv()
 
+wc = os.getenv("welcome_channel")
+ml = os.getenv("message_log")
 
 class cog_1(commands.Cog):
     def __init__(self, client):
@@ -24,14 +29,12 @@ class cog_1(commands.Cog):
             title="New Member Joined!! :tada: ",
             description=f"{member.mention} just landed on the server. Welcome them on the server :comet:",
         )
-        await self.client.get_channel(956266369320624128).send(embed=embed)
+        await self.client.get_channel(wc).send(embed=embed)
 
     # For commands
     @commands.command()
     @commands.cooldown(rate=2, per=30)
     async def ping(self, ctx):
-        if ctx.channel.id != 956455479440195625:
-            return
         await ctx.reply(f"{ctx.message.author.mention} Pong!! :ping_pong:")
 
     @commands.Cog.listener()
@@ -43,7 +46,7 @@ class cog_1(commands.Cog):
             description=f"**Message** : {message.content} ",
         )
         embed.set_author(name=message.author, icon_url=message.author.avatar_url)
-        await self.client.get_channel(960849393664274462).send(embed=embed)
+        await self.client.get_channel(int(ml)).send(embed=embed)
 
     @commands.Cog.listener()
     async def on_message_delete(self, message):
@@ -54,7 +57,7 @@ class cog_1(commands.Cog):
             description=f"**Message Deleted** : {message.content}",
         )
         embed.set_author(name=message.author, icon_url=message.author.avatar_url)
-        await self.client.get_channel(960849393664274462).send(embed=embed)
+        await self.client.get_channel(int(ml)).send(embed=embed)
 
 
 def setup(client):

@@ -1,5 +1,8 @@
 import discord
 from discord.ext import commands
+from dotenv import load_dotenv
+import os
+load_dotenv()
 
 
 class cog_5(commands.Cog):
@@ -61,8 +64,7 @@ class cog_5(commands.Cog):
             )
             await ctx.send(embed=embed)
 
-        else:
-            print(error)
+        
 
 
 def setup(client):

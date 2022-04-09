@@ -1,6 +1,10 @@
 import discord
 from discord.ext import commands
+from dotenv import load_dotenv
+import os
+load_dotenv()
 
+bc = os.getenv("bot_commands_channel_id")
 
 class cog_7(commands.Cog):
     def __init__(self, client):
@@ -8,7 +12,7 @@ class cog_7(commands.Cog):
 
     @commands.command()
     async def help(self, ctx):
-        if ctx.channel.id != 956455479440195625:
+        if ctx.channel.id != int(bc):
             return
 
         await ctx.reply(f"Help Requested by {ctx.author.mention} ")

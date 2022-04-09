@@ -1,6 +1,10 @@
 import discord
 from discord.ext import commands
+from dotenv import load_dotenv
+import os
+load_dotenv()
 
+al = os.getenv("abuse_log")
 
 def swear_words():
     with open("Docs/swear_words.txt", "r") as file:
@@ -24,7 +28,7 @@ class cog_3(commands.Cog):
                 title="New Abuser Found",
                 description=f"{message.author.mention} used the swear word **{message.content}**. \nAlthough **the message was deleted** ",
             )
-            await self.client.get_channel(960849069939499058).send(embed=embed7)
+            await self.client.get_channel(int(al)).send(embed=embed7)
 
 
 def setup(client):
