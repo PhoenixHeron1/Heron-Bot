@@ -7,17 +7,17 @@ class cog_2(commands.Cog):
         self.client = client
 
     # mini-calculator
-    @commands.command()
-    async def calc(self, ctx, *, equation):
-        if ctx.channel.id != 956455479440195625:
-            return
+#     @commands.command()
+#     async def calc(self, ctx, *, equation):
+#         if ctx.channel.id != 956455479440195625:
+#             return
 
-        embed1 = discord.Embed(
-            title="Equation Solver",
-            color=0x465722,
-            description=f"Quesion : {equation} \nAnswer : {eval(equation)}",
-        )
-        await ctx.reply(embed=embed1)
+#         embed1 = discord.Embed(
+#             title="Equation Solver",
+#             color=0x465722,
+#             description=f"Quesion : {equation} \nAnswer : {eval(equation)}",
+#         )
+#         await ctx.reply(embed=embed1)
 
     # clear channel
     @commands.command()
