@@ -48,3 +48,4 @@ If everything is done right, then you are pretty much done. Now just execute the
 14) .leave -> `leaves the vc`
 15) .slap <user> -> `slaps the mentioned user`
 16) .dm <user> <message> -> `admins only sends dm to the user`
+17) .meme -> send a meme
