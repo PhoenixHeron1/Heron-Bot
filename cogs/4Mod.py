@@ -78,37 +78,3 @@ class cog_4(commands.Cog):
 def setup(client):
     client.add_cog(cog_4(client))
 
-
-"""
-	@kick.error
-	async def kick_error(self, ctx, error):
-		if isinstance(
-			error, (commands.MissingRequiredArgument, commands.MissingPermissions)):
-				embed8 = discord.Embed(
-					title="Permission Required",
-					color=0x465722,	
-					description="****Possible Causes are**** : \n1. Missing Permissions \n2. Invalid Syntax \n3. User not found"
-			)
-				await ctx.reply(embed=embed8)
-		else:
-				print(f"Ignoring exception in command {ctx.command}:", file=sys.stderr)
-				traceback.print_exception(
-					type(error), error, error.__traceback__, file=sys.stderr
-			)
-"""
-"""
-	async def ban_error(self, ctx, error):
-		if isinstance(
-			error, (commands.MissingPermissions, commands.MissingRequiredArgument)):
-			embed4 = discord.Embed(
-				title="Error Occured",
-				color=0x465722,
-				description="****Possible Causes are**** : \n1. Missing Permissions \n2. Invalid Syntax \n3. User not found",
-			)
-			await ctx.reply(embed=embed4)
-		else:
-			print(f"Ignoring exception in command {ctx.command}:", file=sys.stderr)
-			traceback.print_exception(
-				type(error), error, error.__traceback__, file=sys.stderr
-			)
-"""
