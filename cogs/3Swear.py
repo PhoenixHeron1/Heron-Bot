@@ -1,7 +1,9 @@
+import os
+
 import discord
 from discord.ext import commands
 from dotenv import load_dotenv
-import os
+
 load_dotenv()
 
 al = os.getenv("abuse_log")
@@ -29,7 +31,8 @@ class cog_3(commands.Cog):
                 description=f"{message.author.mention} used the swear word **{message.content}**. \nAlthough **the message was deleted** ",
             )
             await self.client.get_channel(int(al)).send(embed=embed7)
-
+        
+        
 
 def setup(client):
     client.add_cog(cog_3(client))

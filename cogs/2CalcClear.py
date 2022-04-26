@@ -1,29 +1,17 @@
 import discord
 from discord.ext import commands
-from dotenv import load_dotenv
-import os
-load_dotenv()
+
 
 class cog_2(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-    # mini-calculator
-#     @commands.command()
-#     async def calc(self, ctx, *, equation):
-#         if ctx.channel.id != 956455479440195625:
-#             return
-
-#         embed1 = discord.Embed(
-#             title="Equation Solver",
-#             color=0x465722,
-#             description=f"Quesion : {equation} \nAnswer : {eval(equation)}",
-#         )
-#         await ctx.reply(embed=embed1)
-
     # clear channel
     @commands.command()
     async def clear(self, ctx, amount=5):
+        if amount > 1000:
+            await ctx.reply("Please delete messages in limited amount. Deleting large amount of messages may lag the server")
+            return
         if ctx.message.author.guild_permissions.manage_channels:
             await ctx.channel.purge(limit=amount)
             embed2 = discord.Embed(

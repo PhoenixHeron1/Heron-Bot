@@ -36,7 +36,7 @@ class cog_1(commands.Cog):
     @commands.cooldown(rate=2, per=30)
     async def ping(self, ctx):
         await ctx.reply(f"{ctx.message.author.mention} Pong!! :ping_pong:")
-
+        
     @commands.Cog.listener()
     async def on_message(self, message):
         if message.author.id in [self.client.user.id, 961676784196255846]:

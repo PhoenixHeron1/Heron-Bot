@@ -63,8 +63,11 @@ class cog_5(commands.Cog):
                 description="Some error occured during the execution. Check the format of the command",
             )
             await ctx.send(embed=embed)
-
         
+        elif isinstance(error, commands.MessageNotFound):
+            print("Unknown message found")
+        else:
+            print(error)
 
 
 def setup(client):

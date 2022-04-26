@@ -1,7 +1,9 @@
+import os
+
 import discord
 from discord.ext import commands
 from dotenv import load_dotenv
-import os
+
 load_dotenv()
 
 abl = os.getenv("kick_ban_log")
@@ -46,10 +48,8 @@ class cog_4(commands.Cog):
     @commands.command()
     @commands.has_permissions(administrator=True)
     async def mute(self, ctx, member: discord.Member, *, reason=None):
-        if member.id == 836260205943717898:
-            return
 
-        muted_role = ctx.guild.get_role(mr)
+        muted_role = ctx.guild.get_role(int(mr))
         embed = discord.Embed(
             title="Member Muted",
             description=f"{ctx.message.author.mention} used mute command",
@@ -65,12 +65,12 @@ class cog_4(commands.Cog):
     @commands.has_permissions(administrator=True)
     async def unmute(self, ctx, member: discord.Member):
 
-        muted_role = ctx.guild.get_role(mr)
+        muted_role = ctx.guild.get_role(int(mr))
         embed = discord.Embed(
             title="Member unmuted",
             description=f"{ctx.message.author.mention} used unmute command",
         )
-        embed.add_field(name=f"**Member Unmuted **: {member}", value=None)
+        embed.add_field(name=f"**Member Unmuted **: {member}", value="Behave")
         await member.remove_roles(muted_role)
         await ctx.reply(embed=embed)
 

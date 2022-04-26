@@ -20,7 +20,7 @@ ytdl_format_options = {
     "quiet": True,
     "no_warnings": True,
     "default_search": "auto",
-    "source_address": "192.168.1.6",  # bind to ipv4 since ipv6 addresses cause issues sometimes
+    "source_address": "192.168.1.4",  # bind to ipv4 since ipv6 addresses cause issues sometimes
 }
 
 ffmpeg_options = {"options": "-vn"}
@@ -64,8 +64,7 @@ class cog_10(commands.Cog):
 
         else:
             channel = ctx.message.author.voice.channel
-
-        await channel.connect()
+            await channel.connect()
 
     @commands.command()
     async def leave(self, ctx):
@@ -79,6 +78,7 @@ class cog_10(commands.Cog):
 
         else:
             await ctx.reply("The bot is not connected to any voice channel")
+
 
     @commands.command()
     async def play(self, ctx, *, url):

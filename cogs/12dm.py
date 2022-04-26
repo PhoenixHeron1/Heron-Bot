@@ -12,7 +12,10 @@ class cog_12(commands.Cog):
     @commands.command()
     @commands.has_permissions(administrator=True)
     async def dm(self, ctx, user: discord.Member, *, message=None):
-        embed = discord.Embed(title=message)
+        embed = discord.Embed(
+            title=f"Message from {ctx.author.name}",
+            description=f"{message}"
+            )
         await user.send(embed=embed)
 
 

@@ -1,7 +1,6 @@
 import discord
 from discord.ext import commands
 from dotenv import load_dotenv
-import os
 load_dotenv()
 
 
@@ -13,7 +12,7 @@ class cog_11(commands.Cog):
     async def slap(self, ctx, member: discord.Member):
         await ctx.reply(
             f"{member.mention} was slapped by {ctx.message.author.mention}",
-            file=discord.File("images/pngtree-slap-emoji-png-image_2828294.jpg"),
+            file=discord.File("images/pngtree-slap-emoji-png-image_2828294.jpg")
         )
 
 
